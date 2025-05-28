@@ -5,40 +5,23 @@ using namespace std;
 int main()
 {
     optimize();
-    int counts_1 = 0;
-    int counts_2 = 0;
 
-    int x;
-    cin >> x;
+    int counts= 0;
+    int n;
+    cin >> n;
 
     string s;
     cin >> s;
 
-    for(int i = 0; i < s.length(); i++)
+    for(int i = 0; i < n -1; i++)
     {
-        if(s[0] - s[i] == 0)
+        if(s[i] == s[i+1])
         {
-            counts_1++;
+            counts++;
         }
     }
 
-    if(s.length() - 1 != counts_1)
-    {
-        for(int i = 0; i < s.length() - 2; i++)
-        {
-            if(s[i] - s[i+1] == 0)
-            {
-                counts_2++;
-            }
-        }
-
-        cout << counts_2 << endl;
-
-    }
-    else
-    {
-        cout << counts_1 - 1 << endl;
-    }
+    cout << counts << endl;;
 
     return 0;
 }
