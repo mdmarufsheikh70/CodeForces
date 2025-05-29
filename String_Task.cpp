@@ -5,8 +5,10 @@ using namespace std;
 int main() 
 {
     optimize();
+
     string s;
     cin >> s;
+
     for(int i = 0; i < s.length(); i++)
     {
         if(s[i] >= 97)
@@ -21,26 +23,23 @@ int main()
     }
 
     int length = s.length();
+    string tem = "";
 
     for(int i = 0; i < length; i++)
     {
-        if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' || s[i] == 'y')
+        if(s[i] != 'a' && s[i] != 'e' && s[i] != 'i' && s[i] != 'o' && s[i] != 'u' && s[i] != 'y')
         {
-            for(int j = i; j < length - 1; j++)
-            {
-                s[j] = s[j+1];
-            }
-            length--;
+            tem = tem + s[i];
         }
         else
         {
-            s[i] = s[i];
+            continue;
         }
     }
 
-    for(int i = 0; i < length; i++)
+    for(int i = 0; i < tem.length(); i++)
     {
-        cout << "."<< s[i];
+        cout << "."<< tem[i];
     }
 
     return 0;
