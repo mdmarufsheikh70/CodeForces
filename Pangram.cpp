@@ -5,32 +5,22 @@ using namespace std;
 int main()
 {
     optimize();
+
     int n;
     cin >> n;
 
-    char c;
-    vector<char> s(n);
-    
+    string s;
+    cin >> s;
+
+    set<char> letters;
+
     for(int i = 0; i < n; i++)
     {
-        cin >> s[i]; 
+        char ch = tolower(s[i]);
+        letters.insert(ch);
     }
 
-    int counts_1 = 0;
-    int counts_2 = 0;
-    for(int i = 0; i < n; i++)
-    {
-        if(s[i] >= 65 && s[i] < 97)
-        {
-            counts_1 += 1;
-        }
-        else
-        {
-            counts_2 += 1;
-        }
-    }
-
-    if(counts_1 > 0 && counts_2 > 0)
+    if(letters.size() == 26)
     {
         cout << "YES" << endl;
     }
@@ -38,6 +28,5 @@ int main()
     {
         cout << "NO" << endl;
     }
-    
     return 0;
 }
